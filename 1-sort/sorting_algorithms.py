@@ -50,8 +50,19 @@ def merge(dq):
             k += 1
         return dq
 
+def count(dq):
+    zliczone = [0]*len(dq)
+    output = [0]*len(dq)
+    for i in range(len(dq)):
+        zliczone[dq[i]] += 1
+    for i in range(len(zliczone)-1, -1, -1):
+        output[zliczone[dq[i]] - 1] = dq[i]
+        zliczone[dq[i]] -= 1
+    dq = output
+    return dq
 
 lista = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 bubble(lista)
 heap(lista)
 merge(lista)
+count(lista)
